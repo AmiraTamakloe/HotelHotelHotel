@@ -8,10 +8,15 @@ import { AppComponent } from "./app.component";
 import { CommunicationService } from "./services/communication.service";
 import { AppMaterialModule } from './modules/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HotelComponent } from './component/hotel/hotel.component';
+import { HeaderComponent } from './component/header/header.component';
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HotelComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    MatPaginatorModule,
   ],
   providers: [CommunicationService],
   entryComponents: [],
