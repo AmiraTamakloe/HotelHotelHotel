@@ -11,12 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HotelComponent } from './component/hotel/hotel.component';
 import { HeaderComponent } from './component/header/header.component';
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { CreateHotelComponent } from './component/create-hotel/create-hotel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HotelComponent,
-    HeaderComponent
+    HeaderComponent,
+    CreateHotelComponent
   ],
   imports: [
     CommonModule,

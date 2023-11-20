@@ -1,0 +1,16 @@
+<form [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="hotel">
+      <label for="numhotel">Identifiant Hotel: </label>
+      <input id="numhotel" type="text" formControlName="numhotel" />
+  
+      <label for="nom">Nom: </label>
+      <input id="nom" type="text" formControlName="nom" />
+  
+      <label for="ville">Ville: </label>
+      <input id="ville" type="text" formControlName="ville" />
+    </div>
+    <p class="hidden">Form Value: {{ hotelForm.value | json }}</p>
+    <p class="hidden">Form Status: {{ hotelForm.status }}</p>
+    <button type="submit" [disabled]="!hotelForm.valid">Créer l'hôtel</button>
+  </form>
+  

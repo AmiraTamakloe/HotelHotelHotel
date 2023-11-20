@@ -22,8 +22,14 @@ export class CommunicationService {
 
   public getAllHotels(): Observable<Hotel[]> {
     return this.http
-      .get<Hotel[]>(this.BASE_URL + `/hotels`)
-      .pipe(catchError(this.handleError<Hotel[]>("getClinics")));
+      .get<Hotel[]>(this.BASE_URL + `/hotel`)
+      .pipe(catchError(this.handleError<Hotel[]>("getHotels")));
+  }
+  
+  public addHotel(hotel: Hotel): Observable<Hotel> {
+    return this.http
+      .post<Hotel>(this.BASE_URL + `/hotel/insert`, hotel)
+      .pipe(catchError(this.handleError<Hotel>("addHotel")));
   }
 
   // À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE

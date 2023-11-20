@@ -9,24 +9,6 @@ export interface hotel {
   actions: string;
 }
 
-const ELEMENT_DATA: hotel[] = [
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-  { number: "H111", name: "Grosvenor Hotel", city: "London", actions: "H" },
-];
-
 @Component({
   selector: "app-hotel",
   templateUrl: "./hotel.component.html",
@@ -34,8 +16,7 @@ const ELEMENT_DATA: hotel[] = [
 })
 export class HotelComponent implements OnInit {
   displayedColumns: string[] = ["number", "name", "city", "actions"];
-  dataSource = ELEMENT_DATA;
-  protected hotels: Hotel[];
+  hotels: Hotel[];
 
   constructor(private communicationService: CommunicationService) {
     this.hotels = [];
@@ -43,8 +24,8 @@ export class HotelComponent implements OnInit {
 
   ngOnInit(): void {
     this.communicationService.getAllHotels().subscribe((hotels: Hotel[]) => {
+      console.log(hotels);
       this.hotels = hotels;
     });
-    console.log(this.hotels);
   }
 }

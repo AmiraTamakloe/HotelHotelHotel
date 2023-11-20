@@ -1,29 +1,29 @@
 <header></header>
 <h1>Hotels</h1>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="hotels" class="mat-elevation-z8">
   <!-- Position Column -->
   <ng-container matColumnDef="number">
     <th mat-header-cell *matHeaderCellDef>Hotel Number</th>
-    <td mat-cell *matCellDef="let hotel">{{ hotel.number }}</td>
+    <td mat-cell *matCellDef="let hotel">{{ hotel.numhotel }}</td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Hotel Name</th>
-    <td mat-cell *matCellDef="let hotel">{{ hotel.name }}</td>
+    <td mat-cell *matCellDef="let hotel">{{ hotel.nom }}</td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="city">
     <th mat-header-cell *matHeaderCellDef>City</th>
-    <td mat-cell *matCellDef="let hotel">{{ hotel.city }}</td>
+    <td mat-cell *matCellDef="let hotel">{{ hotel.ville }}</td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>Action</th>
     <td mat-cell *matCellDef="let hotel">
-      <a mat-raised-button (click)="EditProduct(hotel.number)">Edit</a>
+      <a mat-raised-button (click)="EditProduct(hotel.numhotel)">Edit</a>
       <a mat-raised-button>Delete</a>
     </td>
   </ng-container>
@@ -37,4 +37,4 @@
   >
   </mat-paginator>
 </table>
-<button class="add">+</button>
+<button class="add" routerLink="/ajout">+</button>
