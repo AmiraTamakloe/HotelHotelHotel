@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Modification des informations de l'hôtel</h2>
+<mat-dialog-content
+  ><form [formGroup]="hotelForm">
+    <div formGroupName="hotel">
+      <label for="numhotel">Hotel Number : </label>
+      <input id="numhotel" type="text" formControlName="numhotel" disabled/>
+
+      <label for="nom">Hotel Name: </label>
+      <input id="nom" type="text" formControlName="nom" />
+
+      <label for="ville">City: </label>
+      <input id="ville" type="text" formControlName="ville" />
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="cancelAction()">Annuler</button>
+  <button
+    mat-button
+    [disabled]="!hotelForm.valid"
+    cdkFocusInitial
+    (click)="onSubmit()"
+  >
+    Confirm
+  </button>
+</mat-dialog-actions>

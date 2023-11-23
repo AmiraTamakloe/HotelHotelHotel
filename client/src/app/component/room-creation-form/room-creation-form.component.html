@@ -1,0 +1,23 @@
+<form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+  <label for="numhotel">Hotel : </label>
+  <select id="numhotel" formControlName="numhotel" required>
+    <option *ngFor="let hotel of hotelNames" [value]="hotel.numhotel">{{ hotel.nom }}</option>
+  </select>
+
+  <label for="numroom">Room Number : </label>
+  <input id="numroom" type="number" formControlName="numroom" onchange="validateForm()"/>
+
+  <label for="roomtype">Room Type: </label>
+  <select id="roomtype" formControlName="roomtype" required>
+    <option value="single">Single</option>
+    <option value="double">Double</option>
+    <option value="penthouse">Penthouse</option>
+  </select>
+
+  <label for="price">Room Price </label>
+  <input id="price" type="number" formControlName="price" />
+
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!roomForm.valid">Submit</button>
+</form>
+<hr />

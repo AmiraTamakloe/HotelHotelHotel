@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Room Modification Form</h2>
+<mat-dialog-content>
+  <form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+    <label for="numhotel">Hotel : </label>
+    <select id="numhotel" formControlName="numhotel" required>
+      <option *ngFor="let hotel of hotelNames" [value]="hotel.numhotel">
+        {{ hotel.nom }}
+      </option>
+    </select>
+
+    <label for="numroom">Room Number : </label>
+    <input id="numroom" type="number" formControlName="numroom" />
+
+    <label for="roomtype">Room Type: </label>
+    <select id="roomtype" formControlName="roomtype" required>
+      <option value="single">Single</option>
+      <option value="double">Double</option>
+      <option value="penthouse">Penthouse</option>
+    </select>
+
+    <label for="price">Room Price </label>
+    <input id="price" type="number" formControlName="price" />
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="cancelAction()">Annuler</button>
+  <button mat-button [disabled]="!roomForm.valid" cdkFocusInitial (click)="onSubmit()">
+    Confirm
+  </button>
+</mat-dialog-actions>

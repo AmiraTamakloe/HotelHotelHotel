@@ -1,0 +1,14 @@
+<form [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="hotel">
+      <label for="numhotel">Hotel Number: </label>
+      <input id="numhotel" type="text" formControlName="numhotel" />
+  
+      <label for="nom">Hotel Name: </label>
+      <input id="nom" type="text" formControlName="nom" />
+  
+      <label for="ville">City: </label>
+      <input id="ville" type="text" formControlName="ville" />
+    </div>
+    <button type="submit" [disabled]="!hotelForm.valid">Add New Hotel</button>
+  </form>
+  

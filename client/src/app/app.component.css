@@ -5,6 +5,12 @@
   font-weight: bold;
 }
 
+.main-nav {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  padding: 1%;
+}
+
 .home {
   display: flex;
   flex-direction: column;

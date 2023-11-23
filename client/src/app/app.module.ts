@@ -9,16 +9,24 @@ import { CommunicationService } from "./services/communication.service";
 import { AppMaterialModule } from './modules/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HotelComponent } from './component/hotel/hotel.component';
-import { HeaderComponent } from './component/header/header.component';
 import { MatPaginatorModule } from "@angular/material/paginator";
-import { CreateHotelComponent } from './component/create-hotel/create-hotel.component';
+import { HotelCreationFormComponent } from './component/hotel-creation-form/hotel-creation-form.component';
+import { ConfirmationPopupComponent } from './component/confirmation-popup/confirmation-popup.component';
+import { ModifyHotelComponent } from './component/modify-hotel/modify-hotel.component';
+import { RoomComponent } from "./component/room/room.component";
+import { RoomCreationFormComponent } from './component/room-creation-form/room-creation-form.component';
+import { ModifyRoomComponent } from './component/modify-room/modify-room.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HotelComponent,
-    HeaderComponent,
-    CreateHotelComponent
+    HotelCreationFormComponent,
+    ConfirmationPopupComponent,
+    ModifyHotelComponent,
+    RoomComponent,
+    RoomCreationFormComponent,
+    ModifyRoomComponent
   ],
   imports: [
     CommonModule,

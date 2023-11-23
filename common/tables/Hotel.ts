@@ -1,5 +1,5 @@
 export interface Hotel {
     "numhotel" : string;
-    "nomhotel" : string;
-    "villehotel" : string;
+    "nom" : string;
+    "ville" : string;
 }

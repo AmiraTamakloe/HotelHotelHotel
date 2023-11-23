@@ -1,0 +1,18 @@
+DROP SCHEMA IF EXISTS HotelBD CASCADE;
+CREATE SCHEMA IF NOT EXISTS HotelBD;
+SET search_path=HotelBD;
+
+CREATE TABLE HotelBD.Hotel (
+    numHotel VARCHAR(30) NOT NULL PRIMARY KEY,
+    nom VARCHAR(30) NOT NULL,
+    ville VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE HotelBD.Room (
+    roomId SERIAL PRIMARY KEY,
+    numRoom INT NOT NULL,
+    roomType VARCHAR(20) NOT NULL,
+    price NUMERIC(10, 2) NOT NULL CHECK (price > 0),
+    numHotel VARCHAR(30) NOT NULL,
+    FOREIGN KEY (numHotel) REFERENCES HotelBD.Hotel(numHotel)
+);

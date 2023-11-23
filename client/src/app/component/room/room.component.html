@@ -1,0 +1,48 @@
+<h1>Rooms</h1>
+<div class="dropdown">
+  <label for="hotel">Please select an hotel : </label>
+  <select name="hotel" id="hotel" [formControl]="hotel">
+    <option *ngFor="let hotelName of hotelNames" [ngValue]="hotelName">{{ hotelName.nom }}</option>
+    <option [ngValue]="">All</option>
+  </select>
+</div>
+
+<table mat-table [dataSource]="rooms" class="mat-elevation-z8">
+  <ng-container matColumnDef="numhotel">
+    <th mat-header-cell *matHeaderCellDef>Hotel Number</th>
+    <td mat-cell *matCellDef="let room">{{ room.numhotel }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="RoomNumber">
+    <th mat-header-cell *matHeaderCellDef>Room Number</th>
+    <td mat-cell *matCellDef="let room">{{ room.numroom }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="roomType">
+    <th mat-header-cell *matHeaderCellDef>Room Type</th>
+    <td mat-cell *matCellDef="let room">{{ room.roomtype }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let room">{{ room.price }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let room">
+      <a mat-raised-button (click)="editRoom(room)">Edit</a>
+      <a mat-raised-button (click)="deleteRoom(room.roomid)">Delete</a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator
+  [pageSizeOptions]="[20, 10, 15]"
+  showFirstLastButtons
+  aria-label="Select hotels"
+>
+</mat-paginator>
+<button class="add" routerLink="/rooms/create"><mat-icon>add</mat-icon></button>

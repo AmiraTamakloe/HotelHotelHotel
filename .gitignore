@@ -1,49 +1,26 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Ignore node_modules directory
+node_modules/
 
-# compiled output
-/dist
-/tmp
-/out-tsc
-/.angular/cache
-/out
-# Only exists if Bazel was run
-/bazel-out
+# Ignore all log files
+*.log
+.angular
 
-# dependencies
-/node_modules
-/.angular
+# Ignore the .env file
+.env
 
-# profiling files
-chrome-profiler-events*.json
+/out/
+/server/out/
+out/
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+#ignoring .vscode folder but we keep some files for debuging
+/.vscode/chrome
+/.vs/
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-!package-lock.json
-
-# System Files
+package-lock.json
 .DS_Store
-Thumbs.db
+
+# File for vscode workspace
+workspace.code-workspace
+
+# .env  indépendant pour chaque membre de l'équipe
+*.env

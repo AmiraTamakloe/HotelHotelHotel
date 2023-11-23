@@ -1,10 +1,21 @@
 <div>
-  <app-header></app-header>
+  <nav class="navbar navbar-dark bg-dark main-nav">
+    <a class="navbar-brand title" href="/" matTooltip="Retournez à l'accueil"
+      >INF3710 - TP4</a
+    >
+    <div class="navbar-expand mr-auto">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink="/hotels">Hotels</a>
+        <a class="nav-item nav-link active" routerLink="/rooms">Rooms</a>
+        <a class="nav-item nav-link active" routerLink="/guests">Guests</a>
+      </div>
+    </div>
+  </nav>  
   <div class="home" *ngIf="route == ''">
     <p>
       Welcome to <span>hotels</span><span>hotels</span><span>hotels</span>
     </p>
-    <button mat-raised-button color="primary" class="btn" routerLink="/ROUTEUR_À_IMPLÉMENTER">Parcourir quelque chose...<mat-icon>arrow_right</mat-icon></button>
+    <button mat-raised-button color="primary" class="btn" routerLink="/hotels">Check Our Hotels<mat-icon>arrow_right</mat-icon></button>
   </div>
   <router-outlet></router-outlet>
 </div>
