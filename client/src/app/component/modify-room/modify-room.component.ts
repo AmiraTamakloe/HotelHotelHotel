@@ -27,13 +27,18 @@ export class ModifyRoomComponent implements OnInit {
 
   
   async ngOnInit(): Promise<void> {
+    console.log('aaaaa');
+    console.log(this.data.room);
+    console.log('1111111')
     await this.fetchHotelNames();
     this.initForm();
+    console.log('end init')
   }
 
   async fetchHotelNames() {
     this.communicationService.getAllHotelsName().subscribe((names: Hotel[]) => {
       this.hotelNames = names;
+      console.log('names', names);
     });
   }
 
@@ -48,6 +53,7 @@ export class ModifyRoomComponent implements OnInit {
       roomtype: [this.data.room.roomtype.toLowerCase(), Validators.required],
       price: [+(this.data.room.price), Validators.required],
     });
+    console.log('roomForm', this.roomForm);
   }
   
 
@@ -68,11 +74,13 @@ export class ModifyRoomComponent implements OnInit {
       });
       return;
     }
+    console.log('roomForm', this.roomForm.value);
+    console.log('data', this.data.room);
     if (
       this.roomForm.value.numhotel === this.data.room.numhotel &&
       this.roomForm.value.numroom === this.data.room.numroom &&
       this.roomForm.value.price === +this.data.room.price &&
-      this.roomForm.value.roomtype === this.data.room.roomtype
+      this.roomForm.value.roomtype.toLowerCase() === this.data.room.roomtype.toLowerCase()
     ) {
       this.matSnackBar.open("No field was modified", "x", {
         duration: 3000,

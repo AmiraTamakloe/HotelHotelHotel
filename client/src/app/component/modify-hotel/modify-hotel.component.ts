@@ -26,7 +26,6 @@ export class ModifyHotelComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    console.log(this.data.hotel);
     this.initForm();
   }
 

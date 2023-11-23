@@ -40,7 +40,6 @@ export class DatabaseController {
       await this.databaseService
         .modifyHotelInfo(req.body)
         .then((result: pg.QueryResult) => {
-          console.log(result.rows);
           res.json(result.rows);
         })
         .catch((error: Error) => {
@@ -48,7 +47,6 @@ export class DatabaseController {
         });
     });
     router.put("/room", async (req, res, next) => {
-      console.log(req.body);
       await this.databaseService
         .modifyRoomInfo(req.body)
         .then((result: pg.QueryResult) => {
@@ -79,7 +77,6 @@ export class DatabaseController {
         });
     });
     router.delete("/room/:roomid", async (req, res, next) => {
-      console.log(req.params.roomid);
       await this.databaseService
         .deleteRoom(req.params.roomid)
         .then((result: pg.QueryResult) => {

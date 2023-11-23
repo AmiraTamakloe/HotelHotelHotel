@@ -55,7 +55,6 @@ export class DatabaseService {
     if (price) {
       query += ` AND price = ${price}`;
     }
-    console.log(query);
     const result: pg.QueryResult = await this.pool.query(query);
     client.release();
     return result;
@@ -117,7 +116,6 @@ export class DatabaseService {
     UPDATE HotelBD.Room
     SET numroom = '${room.numroom}', roomtype = '${room.roomtype}', price = '${room.price}', numhotel = '${room.numhotel}'
     WHERE roomid = '${room.roomid}'`;
-    console.log(query);
     const result: pg.QueryResult = await this.pool.query(query);
     client.release();
     return result;
@@ -134,9 +132,7 @@ export class DatabaseService {
     const client: pg.PoolClient = await this.pool.connect();
     const id = +roomid;
     const query: string = `DELETE FROM HotelBD.Room WHERE roomid = ${id}`;
-    console.log(query);
     const result: pg.QueryResult = await this.pool.query(query);
-    console.log(result);
     client.release();
     return result;
   }

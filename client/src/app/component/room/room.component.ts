@@ -57,7 +57,6 @@ export class RoomComponent implements OnInit {
     this.communicationService.getRooms(numhotel).subscribe((rooms: Room[]) => {
       this.rooms = new MatTableDataSource<Room>(rooms);
       this.rooms.paginator = this.paginator;
-      console.log(this.rooms);
     });
   }
 
@@ -71,7 +70,6 @@ export class RoomComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log(roomid);
         this.communicationService
           .deleteRoom(roomid)
           .subscribe(async (room: Room) => {
@@ -90,7 +88,6 @@ export class RoomComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result: Room) => {
       if (result) {
-        console.log(result);
         this.communicationService
           .modifyRoomInfo(result)
           .subscribe(async (room: Room) => {

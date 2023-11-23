@@ -53,7 +53,6 @@ export class CommunicationService {
       .pipe(catchError(this.handleError<Hotel>("addHotel")));
   }
   public addRoom(room: Room): Observable<Room> {
-    console.log('post is called', room);
     return this.http
       .post<Room>(this.BASE_URL + `/room/insert`, room)
       .pipe(catchError(this.handleError<Room>("addRoom")));
@@ -65,7 +64,6 @@ export class CommunicationService {
       .pipe(catchError(this.handleError<Hotel>("modifyHotelInfo")));
   }
   public modifyRoomInfo(room: Room): Observable<Room> {
-    console.log('put is called', room);
     return this.http
       .put<Room>(this.BASE_URL + `/room`, room)
       .pipe(catchError(this.handleError<Room>("modifyRoomInfo")));
@@ -83,14 +81,12 @@ export class CommunicationService {
   }
 
   public deleteHotel(numHotel: string): Observable<Hotel> {
-    console.log(numHotel);
     return this.http
       .delete<Hotel>(this.BASE_URL + `/hotel/${numHotel}`)
       .pipe(catchError(this.handleError<Hotel>("deleteHotel")));
   }
   
   public deleteRoom(roomid: number): Observable<Room> {
-    console.log(roomid);
     return this.http
       .delete<Room>(this.BASE_URL + `/room/${roomid}`)
       .pipe(catchError(this.handleError<Room>("deleteRoom")));

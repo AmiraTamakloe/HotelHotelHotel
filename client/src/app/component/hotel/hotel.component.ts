@@ -39,7 +39,6 @@ export class HotelComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log(numHotel)
         this.communicationService
           .deleteHotel(numHotel)
           .subscribe(async (hotel: Hotel) => {
@@ -58,7 +57,6 @@ export class HotelComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result: Hotel) => {
       if (result) {
-        console.log(result);
         this.communicationService
           .modifyHotelInfo(result)
           .subscribe(async (hotel: Hotel) => {
@@ -84,7 +82,6 @@ export class HotelComponent implements OnInit {
   async fetchData() {
     this.communicationService.getAllHotels().subscribe((hotels: Hotel[]) => {
       this.hotels = new MatTableDataSource<Hotel>(hotels);
-      console.log(hotels);
       this.hotels.paginator = this.paginator;
       this.paginator.pageSizeOptions = [5, 10, 20];
       this.paginator.showFirstLastButtons = true;
