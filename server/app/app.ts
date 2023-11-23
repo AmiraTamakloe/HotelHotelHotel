@@ -19,7 +19,6 @@ export class Application {
   }
 
   private config(): void {
-    // Middlewares configuration
     this.app.use(logger("dev"));
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,13 +27,11 @@ export class Application {
   }
 
   public bindRoutes(): void {
-    // Notre application utilise le routeur de notre API
     this.app.use("/database", this.databaseController.router);
     this.errorHandeling();
   }
 
   private errorHandeling(): void {
-    // Gestion des erreurs
     this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
       const err: Error = new Error("Not Found");
       (err as any).status = 404;

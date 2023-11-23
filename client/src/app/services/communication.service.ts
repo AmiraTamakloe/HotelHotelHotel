@@ -1,4 +1,3 @@
-// À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, Subject, catchError, of } from "rxjs";
@@ -7,7 +6,6 @@ import { Room } from "../../../../common/tables/Room";
 
 @Injectable()
 export class CommunicationService {
-  // À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE
   private readonly BASE_URL: string = "http://localhost:3000/database";
   public constructor(private readonly http: HttpClient) {}
 
@@ -98,7 +96,6 @@ export class CommunicationService {
       .pipe(catchError(this.handleError<Room>("deleteRoom")));
   }
 
-  // À DÉCOMMENTER ET À UTILISER LORSQUE VOTRE COMMUNICATION EST IMPLÉMENTÉE
   private handleError<T>(
     request: string,
     result?: T

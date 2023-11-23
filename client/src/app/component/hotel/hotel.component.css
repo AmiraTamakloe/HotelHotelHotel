@@ -6,14 +6,13 @@ h1 {
   h1::after {
     content: "";
     position: absolute;
-    bottom: -5px; /* Adjust the line position as needed */
+    bottom: -5px; 
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #333; /* Change color as desired */
+    background-color: #333; 
   }
   
-  /* Style for the table */
   .mat-elevation-z8 {
     width: 100%;
     border-collapse: collapse;

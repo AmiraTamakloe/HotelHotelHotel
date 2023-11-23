@@ -2,8 +2,10 @@
 <div class="dropdown">
   <label for="hotel">Please select an hotel : </label>
   <select name="hotel" id="hotel" [formControl]="hotel">
-    <option *ngFor="let hotelName of hotelNames" [ngValue]="hotelName">{{ hotelName.nom }}</option>
     <option [ngValue]="">All</option>
+    <option *ngFor="let hotelName of hotelNames" [ngValue]="hotelName">
+      {{ hotelName.nom }}
+    </option>
   </select>
 </div>
 
